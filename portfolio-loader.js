@@ -144,22 +144,22 @@ class PortfolioDataLoader {
     getProjectImage(project) {
         // If project has an image and it's not empty, use it
         if (project.image && project.image.trim() !== '') {
-            return project.image;
+            return project.image.replace('Images/', 'img/');
         }
 
         // Otherwise, use category-specific default image
         const categoryDefaults = {
-            'trainer': 'Images/default/trainer.jpg',
-            'researcher': 'Images/default/researcher.jpg',
-            'consultant': 'Images/default/consultant.jpg',
-            'academic': 'Images/default/academic.jpg',
-            'public-speaker': 'Images/default/public-speaker.jpg',
-            'administrator': 'Images/default/administrator.jpg',
-            'social-enthusiast': 'Images/default/social-enthusiast.jpg'
+            'trainer': 'img/default/trainer.jpg',
+            'researcher': 'img/default/researcher.jpg',
+            'consultant': 'img/default/consultant.jpg',
+            'academic': 'img/default/academic.jpg',
+            'public-speaker': 'img/default/public-speaker.jpg',
+            'administrator': 'img/default/administrator.jpg',
+            'social-enthusiast': 'img/default/social-enthusiast.jpg'
         };
 
         // Return category-specific default or generic fallback
-        return categoryDefaults[project.category] || 'Images/hero.jpg';
+        return categoryDefaults[project.category] || 'img/hero.jpg';
     }
 
     // Render a single project card
@@ -174,7 +174,7 @@ class PortfolioDataLoader {
             <div class="col-lg-4 col-md-6 mix ${categoryClass} ${latestClass}">
                 <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="portfolio-card-link">
                     <div class="portfolio_img">
-                        <img src="${projectImage}" alt="${project.title}" onerror="this.src='Images/hero.jpg'">
+                        <img src="${projectImage}" alt="${project.title}" onerror="this.src='img/hero.jpg'">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h3 class="portfolio-title">${project.title}</h3>
@@ -196,7 +196,7 @@ class PortfolioDataLoader {
             <div class="swiper-slide ${categoryClass}">
                 <a href="${project.link}" target="_blank" rel="noopener noreferrer" class="portfolio-card-link">
                     <div class="portfolio_img">
-                        <img src="${projectImage}" alt="${project.title}" onerror="this.src='Images/hero.jpg'">
+                        <img src="${projectImage}" alt="${project.title}" onerror="this.src='img/hero.jpg'">
                         <div class="portfolio-overlay">
                             <div class="portfolio-info">
                                 <h3 class="portfolio-title">${project.title}</h3>
